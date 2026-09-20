@@ -4,7 +4,7 @@ Add to `~/config/flake.nix`:
 
 ```nix
 inputs.borg = {
-  url = "path:/home/jx/code/misc/borg";
+  url = "github:smoren-brk/borg";
   inputs.nixpkgs.follows = "nixpkgs";
 };
 ```
