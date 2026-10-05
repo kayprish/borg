@@ -35,7 +35,7 @@ let
 in
 python.buildPythonApplication rec {
   pname = "borgbackup";
-  version = "2.0.0b25.dev0";
+  version = "2.0.0b23";
   src = lib.cleanSource ./.;
   pyproject = true;
 
