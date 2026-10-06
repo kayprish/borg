@@ -21,21 +21,14 @@ let
       pythonImportsCheck = [ pname ];
     };
 
-  borghash = fromPyPI "borghash" "0.2.0" "sha256-gfpsBWNmuxGFY7VxfGqEKWFRwM5dPtQgrN6fOs1Ptvk=";
-  borgstore =
-    (fromPyPI "borgstore" "0.6.1" "sha256-7/rjRrLlgT9Xv2zpkMjgr3ZbNj17ClFHqKWFyTzZzrw=")
-    .overridePythonAttrs
-      {
-        dependencies = with python; [
-          requests
-          blake3
-        ];
-      };
+  borghash = fromPyPI "borghash" "0.1.1" "sha256-fu4TngnYZdWFDVOyv8KyiLuULpGBF4pCNGG3USsc7Ns=";
+  borgstore = fromPyPI "borgstore" "0.4.1" "sha256-910iV2JthIsDy4+uJpbJI3oytcLfuWVSH1pKD4bdXp8=";
+  msgpack = fromPyPI "msgpack" "1.1.2" "sha256-O2B2PBNz3WDzmEiAabzccDzQinEUd7XUgO7Mn5Ym9H4=";
   shtab = fromPyPI "shtab" "1.11.0" "sha256-V9+KZGSEs/AFF6QpNLFzVU+CeXane2Bc62oaDmSekmY=";
 in
 python.buildPythonApplication rec {
   pname = "borgbackup";
-  version = "2.0.0b25.dev0";
+  version = "2.0.0b21";
   src = lib.cleanSource ./.;
   pyproject = true;
 
@@ -67,7 +60,8 @@ python.buildPythonApplication rec {
       platformdirs
       jsonargparse
       pyyaml
-      blake3
+      argon2-cffi
+      xxhash
     ]
     ++ lib.optional (lib.versionOlder python.python.version "3.14") backports-zstd;
 
