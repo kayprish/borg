@@ -68,6 +68,7 @@ python.buildPythonApplication rec {
       jsonargparse
       pyyaml
       blake3
+      argon2-cffi
     ]
     ++ lib.optional (lib.versionOlder python.python.version "3.14") backports-zstd;
 
