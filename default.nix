@@ -23,7 +23,7 @@ let
 
   borghash = fromPyPI "borghash" "0.2.0" "sha256-gfpsBWNmuxGFY7VxfGqEKWFRwM5dPtQgrN6fOs1Ptvk=";
   borgstore =
-    (fromPyPI "borgstore" "0.6.1" "sha256-7/rjRrLlgT9Xv2zpkMjgr3ZbNj17ClFHqKWFyTzZzrw=")
+    (fromPyPI "borgstore" "0.7.0" "sha256-EFV+eF65t9ZwngaV7FThooHLc0SVRKlCAuVHw3kFd1w=")
     .overridePythonAttrs
       {
         dependencies = with python; [
@@ -35,7 +35,7 @@ let
 in
 python.buildPythonApplication rec {
   pname = "borgbackup";
-  version = "2.0.0b25.dev0";
+  version = "2.0.0b25";
   src = lib.cleanSource ./.;
   pyproject = true;
 
